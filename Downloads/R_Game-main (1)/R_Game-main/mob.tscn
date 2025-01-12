@@ -1,0 +1,116 @@
+[gd_scene load_steps=23 format=3 uid="uid://pt2xmxh1g4xp"]
+
+[ext_resource type="Texture2D" uid="uid://dh5rjghc1q4cj" path="res://swordsman/swordsman_walking_anim_1.png" id="1_51h7d"]
+[ext_resource type="Texture2D" uid="uid://bov8p21idj6do" path="res://swordsman/swordsman_walking_down_anim_2.png" id="1_mtnq4"]
+[ext_resource type="Texture2D" uid="uid://bs17vcvw8h7tj" path="res://swordsman/swordsman_walking_up_anim_2.png" id="2_7t6r8"]
+[ext_resource type="Texture2D" uid="uid://yxcel1gf7itt" path="res://swordsman/swordsman_walking_anim_2.png" id="2_23ft4"]
+[ext_resource type="Texture2D" uid="uid://c2kkfygty6cfa" path="res://swordsman/swordsman_walking_down_anim_3.png" id="2_supp0"]
+[ext_resource type="Texture2D" uid="uid://w7nnm5gfsvms" path="res://swordsman/swordsman_walking_up_anim_3.png" id="3_6j2el"]
+[ext_resource type="Texture2D" uid="uid://drbrqpsqjq1ot" path="res://swordsman/swordsman_walking_anim_3.png" id="3_amrj4"]
+[ext_resource type="Texture2D" uid="uid://dnc3vilcfd35h" path="res://swordsman/swordsman_walking_down_anim_4.png" id="3_fvg1i"]
+[ext_resource type="Texture2D" uid="uid://ojt3jqaccx5x" path="res://swordsman/swordsman_walking_down_anim_5.png" id="4_b3o0s"]
+[ext_resource type="Texture2D" uid="uid://d4fmwrnaapgds" path="res://swordsman/swordsman_walking_anim_4.png" id="4_hgf4a"]
+[ext_resource type="Texture2D" uid="uid://det8mx5pavqfk" path="res://swordsman/swordsman_walking_up_anim_4.png" id="4_qmu65"]
+[ext_resource type="Texture2D" uid="uid://c84382kejqqqu" path="res://swordsman/swordsman_walking_anim_5.png" id="5_eutcm"]
+[ext_resource type="Texture2D" uid="uid://135ub8gjs2eo" path="res://swordsman/swordsman_walking_up_anim_5.png" id="5_gr282"]
+[ext_resource type="Texture2D" uid="uid://0pclkfqplu3x" path="res://swordsman/swordsman_walking_down_anim_6.png" id="5_ln4xh"]
+[ext_resource type="Texture2D" uid="uid://iuslyxw0etu2" path="res://swordsman/swordsman_walking_down_anim_7.png" id="6_anu1l"]
+[ext_resource type="Texture2D" uid="uid://bauv6ofr3csks" path="res://swordsman/swordsman_walking_anim_6.png" id="6_k4wgg"]
+[ext_resource type="Texture2D" uid="uid://hfnniipl5ppb" path="res://swordsman/swordsman_walking_up_anim_6.png" id="6_vgulb"]
+[ext_resource type="Texture2D" uid="uid://br11oynk777i5" path="res://swordsman/swordsman_walking_up_anim_7.png" id="7_0iws6"]
+[ext_resource type="Texture2D" uid="uid://bi6wa4r0idxa1" path="res://swordsman/swordsman_walking_anim_7.png" id="7_bptiy"]
+[ext_resource type="Script" path="res://mob.gd" id="20_jylck"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6gio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mtnq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_supp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fvg1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b3o0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ln4xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_anu1l")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7t6r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6j2el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qmu65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gr282")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vgulb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0iws6")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_51h7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_23ft4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_amrj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hgf4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eutcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k4wgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bptiy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct8gd"]
+radius = 52.0
+height = 186.0
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+script = ExtResource("20_jylck")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_u6gio")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ct8gd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

@@ -1,0 +1,170 @@
+[gd_scene load_steps=18 format=3 uid="uid://d3bsmdocqr0el"]
+
+[ext_resource type="Script" path="res://npc.gd" id="1_hhape"]
+[ext_resource type="Texture2D" uid="uid://nwysocnxrxh3" path="res://Download62954.png" id="1_wpfcg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1cq7"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(1, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2qst"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(65, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcj1w"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(129, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm7wd"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(193, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdmr8"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(257, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruo11"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(321, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpr1h"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(385, 396, 61, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkxdq"]
+atlas = ExtResource("1_wpfcg")
+region = Rect2(449, 396, 61, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vawok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1cq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2qst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcj1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm7wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdmr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruo11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpr1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkxdq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkasv"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvkcw"]
+radius = 15.012
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1enq"]
+bg_color = Color(0.869291, 0.969889, 0.892393, 1)
+border_width_left = 1
+border_width_bottom = 2
+border_color = Color(0.601553, 0.181303, 0.120237, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 9
+
+[sub_resource type="FontFile" id="FontFile_rt5ui"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="SystemFont" id="SystemFont_m84lo"]
+font_names = PackedStringArray("Comic Sans MS", "Yu Gothic")
+font_italic = true
+font_weight = 600
+font_stretch = 125
+hinting = 2
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+msdf_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_qerg1"]
+line_spacing = 0.5
+font = SubResource("SystemFont_m84lo")
+font_size = 5
+font_color = Color(0.0678385, 0.0160618, 0.00432576, 1)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+
+[node name="Npc" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_hhape")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.42109e-14, 2.38419e-07)
+scale = Vector2(0.284836, 0.275544)
+sprite_frames = SubResource("SpriteFrames_vawok")
+animation = &"idle"
+frame = 7
+frame_progress = 0.810964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tkasv")
+
+[node name="chat_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_area" groups=["player"]]
+shape = SubResource("CircleShape2D_kvkcw")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="ChatBox" type="Panel" parent="."]
+offset_left = 4.0
+offset_top = -31.0
+offset_right = 64.0
+offset_bottom = -14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q1enq")
+
+[node name="Label" type="Label" parent="ChatBox" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.192
+anchor_right = 0.948
+anchor_bottom = 0.726
+offset_left = 0.8
+offset_top = -3.464
+offset_right = 4.32
+offset_bottom = 1.458
+grow_horizontal = 2
+grow_vertical = 2
+shortcut_context = NodePath(".")
+theme_override_fonts/font = SubResource("FontFile_rt5ui")
+theme_override_font_sizes/font_size = 4
+text = "Hello traveler"
+label_settings = SubResource("LabelSettings_qerg1")
+autowrap_mode = 3
+
+[connection signal="area_entered" from="chat_area" to="." method="_on_chat_area_area_entered"]
+[connection signal="area_exited" from="chat_area" to="." method="_on_chat_area_area_exited"]

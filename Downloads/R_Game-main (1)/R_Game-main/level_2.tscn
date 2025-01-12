@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://cg40g1kurjhiw"]
+
+[ext_resource type="PackedScene" uid="uid://d0o5kprece76h" path="res://map_1.tscn" id="1_0exu6"]
+[ext_resource type="PackedScene" uid="uid://dx2uhcd0hr7jo" path="res://player.tscn" id="2_s0c0c"]
+[ext_resource type="PackedScene" uid="uid://b31l71ylvh80c" path="res://enemy_mob.tscn" id="3_ct8xb"]
+[ext_resource type="PackedScene" uid="uid://d3bsmdocqr0el" path="res://npc.tscn" id="4_5j0hx"]
+[ext_resource type="PackedScene" uid="uid://c1q44e5gjyrx8" path="res://pickable_sword.tscn" id="5_vd3yh"]
+[ext_resource type="Script" path="res://next_level2.gd" id="6_yujq3"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fpbck"]
+vertices = PackedVector2Array(2608, 823.172, 3768.11, -378.008, 3791.88, 1663.37, 3534.88, 1673, 2422.83, 1681.03, 2592.79, 887.508, 2608, 674.828, -36.0234, -383.977, 2535.39, 660.078, 2358.12, 646.109, 2438, 1227.17, 2438, 867.203, 2454.57, 878.797, -40.9688, 1689.97, 2363, 708.391, 2363, 835.547, 2422.87, 1685.02, 2414.08, 843.563, 2418.1, 1227.27)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(1, 0, 6), PackedInt32Array(7, 1, 6, 8), PackedInt32Array(7, 8, 9), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 7, 9, 14, 15), PackedInt32Array(4, 16, 13, 15, 17, 18), PackedInt32Array(12, 5, 4, 10), PackedInt32Array(4, 18, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-46, -394, -51, 1700, 2433, 1695, 2424, 835, 2373, 827, 2373, 708, 2369, 657, 2534, 670, 2598, 683, 2598, 822, 2585, 877, 2458, 869, 2428, 848, 2428, 1691, 3535, 1683, 3802, 1673, 3778, -388)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmagc"]
+radius = 55.9464
+
+[node name="Level_2" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_fpbck")
+
+[node name="Map_1" parent="." instance=ExtResource("1_0exu6")]
+position = Vector2(-23, 8)
+
+[node name="Player" parent="." instance=ExtResource("2_s0c0c")]
+
+[node name="Enemy_mob" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(3426, 263)
+
+[node name="Enemy_mob2" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(3486, 485)
+
+[node name="Enemy_mob3" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(2100, 1478)
+
+[node name="Enemy_mob4" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(2260, 1482)
+
+[node name="Enemy_mob5" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(2255, -35)
+
+[node name="Enemy_mob6" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(1123, 989)
+
+[node name="Enemy_mob7" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(1450, 1009)
+
+[node name="Enemy_mob8" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(2483, 52)
+
+[node name="Enemy_mob9" parent="." instance=ExtResource("3_ct8xb")]
+position = Vector2(2609, -4)
+
+[node name="Npc" parent="." instance=ExtResource("4_5j0hx")]
+position = Vector2(2468, 786)
+
+[node name="Pickable_sword" parent="." instance=ExtResource("5_vd3yh")]
+position = Vector2(183, 109)
+
+[node name="Next_level2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_yujq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_level2"]
+position = Vector2(3671, -312)
+shape = SubResource("CircleShape2D_qmagc")
+
+[node name="NextLevelLabel" type="Label" parent="Next_level2"]
+offset_left = 3644.0
+offset_top = -379.0
+offset_right = 3726.0
+offset_bottom = -356.0
+text = "Next Level"
+
+[connection signal="area_entered" from="Next_level2" to="Next_level2" method="_on_area_entered"]
+[connection signal="area_exited" from="Next_level2" to="Next_level2" method="_on_area_exited"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1q44e5gjyrx8"]
+
+[ext_resource type="Script" path="res://pickable_sword.gd" id="1_kh11x"]
+[ext_resource type="PackedScene" uid="uid://cmttiw3bqs7w2" path="res://interaction/interaction_area/interaction_area.tscn" id="2_3l67c"]
+[ext_resource type="Texture2D" uid="uid://caq5ok4kevlsu" path="res://main_ch/pickable_sword/pickable_sword.png" id="2_ql4oj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ssel"]
+radius = 72.0
+
+[node name="Pickable_sword" type="Area2D" groups=["interactable"]]
+collision_layer = 2
+script = ExtResource("1_kh11x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ql4oj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="InteractionArea" parent="." groups=["interactable"] instance=ExtResource("2_3l67c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_7ssel")

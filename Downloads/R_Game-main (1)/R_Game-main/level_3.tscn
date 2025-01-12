@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvlfjbwllwx17"]
+
+[ext_resource type="PackedScene" uid="uid://d11bp23nw8adq" path="res://map_2.tscn" id="1_xijvj"]
+[ext_resource type="PackedScene" uid="uid://dx2uhcd0hr7jo" path="res://player.tscn" id="2_q7xxw"]
+[ext_resource type="PackedScene" uid="uid://b31l71ylvh80c" path="res://enemy_mob.tscn" id="3_fpi6a"]
+[ext_resource type="PackedScene" uid="uid://c1q44e5gjyrx8" path="res://pickable_sword.tscn" id="4_2yci8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sa5df"]
+vertices = PackedVector2Array(1707.03, -34.0938, -425.094, -53.8984, -436.891, -1218.07, 1710.96, -1233.92)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-435, -44, -447, -1228, 1721, -1244, 1717, -24)])
+
+[node name="Level_3" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_sa5df")
+
+[node name="map_2" parent="." instance=ExtResource("1_xijvj")]
+
+[node name="Player" parent="." instance=ExtResource("2_q7xxw")]
+position = Vector2(-3, 38)
+
+[node name="Enemy_mob" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(394, -282)
+
+[node name="Enemy_mob2" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(471, -295)
+
+[node name="Enemy_mob3" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(1220, -126)
+
+[node name="Enemy_mob4" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(1267, -294)
+
+[node name="Enemy_mob5" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(1308, -900)
+
+[node name="Enemy_mob6" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(-193, -820)
+
+[node name="Enemy_mob7" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(221, -1025)
+
+[node name="Enemy_mob8" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(306, -1027)
+
+[node name="Enemy_mob9" parent="." instance=ExtResource("3_fpi6a")]
+position = Vector2(-298, -347)
+
+[node name="Pickable_sword" parent="." instance=ExtResource("4_2yci8")]
+position = Vector2(56, -54)

@@ -1,0 +1,322 @@
+[gd_scene load_steps=36 format=3 uid="uid://b31l71ylvh80c"]
+
+[ext_resource type="Script" path="res://enemy_mob.gd" id="1_6m127"]
+[ext_resource type="Texture2D" uid="uid://bwcolxcm1mrfw" path="res://swordsman/dead/dead.png" id="2_mclpb"]
+[ext_resource type="Texture2D" uid="uid://bov8p21idj6do" path="res://swordsman/swordsman_walking_down_anim_2.png" id="3_rpi5m"]
+[ext_resource type="Texture2D" uid="uid://c2kkfygty6cfa" path="res://swordsman/swordsman_walking_down_anim_3.png" id="4_wunpy"]
+[ext_resource type="Texture2D" uid="uid://dnc3vilcfd35h" path="res://swordsman/swordsman_walking_down_anim_4.png" id="5_wptoj"]
+[ext_resource type="Texture2D" uid="uid://ojt3jqaccx5x" path="res://swordsman/swordsman_walking_down_anim_5.png" id="6_yt62u"]
+[ext_resource type="Texture2D" uid="uid://0pclkfqplu3x" path="res://swordsman/swordsman_walking_down_anim_6.png" id="7_a01kd"]
+[ext_resource type="Texture2D" uid="uid://iuslyxw0etu2" path="res://swordsman/swordsman_walking_down_anim_7.png" id="8_gdp6u"]
+[ext_resource type="Texture2D" uid="uid://bfxkhp53qqisv" path="res://swordsman/hit/hit_1.png" id="9_e87qe"]
+[ext_resource type="Texture2D" uid="uid://ihvwqjmqt2nw" path="res://swordsman/hit/hit_2.png" id="10_k3wy4"]
+[ext_resource type="Texture2D" uid="uid://n5vdcamc8kbk" path="res://swordsman/hit/hit_3.png" id="11_3wa7y"]
+[ext_resource type="Texture2D" uid="uid://bdj2fimd5mu0n" path="res://swordsman/hit/hit_4.png" id="12_b5k1w"]
+[ext_resource type="Texture2D" uid="uid://bs17vcvw8h7tj" path="res://swordsman/swordsman_walking_up_anim_2.png" id="13_lqq1c"]
+[ext_resource type="Texture2D" uid="uid://w7nnm5gfsvms" path="res://swordsman/swordsman_walking_up_anim_3.png" id="14_m61cn"]
+[ext_resource type="Texture2D" uid="uid://det8mx5pavqfk" path="res://swordsman/swordsman_walking_up_anim_4.png" id="15_xtj7t"]
+[ext_resource type="Texture2D" uid="uid://135ub8gjs2eo" path="res://swordsman/swordsman_walking_up_anim_5.png" id="16_6l0th"]
+[ext_resource type="Texture2D" uid="uid://hfnniipl5ppb" path="res://swordsman/swordsman_walking_up_anim_6.png" id="17_innqd"]
+[ext_resource type="Texture2D" uid="uid://br11oynk777i5" path="res://swordsman/swordsman_walking_up_anim_7.png" id="18_2yy8l"]
+[ext_resource type="Texture2D" uid="uid://dh5rjghc1q4cj" path="res://swordsman/swordsman_walking_anim_1.png" id="19_2m75s"]
+[ext_resource type="Texture2D" uid="uid://yxcel1gf7itt" path="res://swordsman/swordsman_walking_anim_2.png" id="20_7ohnc"]
+[ext_resource type="Texture2D" uid="uid://drbrqpsqjq1ot" path="res://swordsman/swordsman_walking_anim_3.png" id="21_83rsb"]
+[ext_resource type="Texture2D" uid="uid://d4fmwrnaapgds" path="res://swordsman/swordsman_walking_anim_4.png" id="22_gj1on"]
+[ext_resource type="Texture2D" uid="uid://c84382kejqqqu" path="res://swordsman/swordsman_walking_anim_5.png" id="23_brs48"]
+[ext_resource type="Texture2D" uid="uid://bauv6ofr3csks" path="res://swordsman/swordsman_walking_anim_6.png" id="24_0hwqi"]
+[ext_resource type="Texture2D" uid="uid://bi6wa4r0idxa1" path="res://swordsman/swordsman_walking_anim_7.png" id="25_8lvs0"]
+[ext_resource type="Script" path="res://hurtbox.gd" id="26_rxn2d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrbc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mclpb")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rpi5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wunpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wptoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yt62u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a01kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gdp6u")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_e87qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k3wy4")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_3wa7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b5k1w")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_lqq1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_m61cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xtj7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6l0th")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_innqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2yy8l")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_2m75s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7ohnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_83rsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_gj1on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_brs48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0hwqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_8lvs0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3amsa"]
+size = Vector2(386.996, 169.063)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp3dp"]
+radius = 193.498
+height = 386.996
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fh6v3"]
+radius = 58.9406
+
+[sub_resource type="Animation" id="Animation_ydxk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/SwordHit/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(75, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_imwxf"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D/SwordHit/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(75, 8), Vector2(25, 8), Vector2(75, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_33v2u"]
+_data = {
+"RESET": SubResource("Animation_ydxk2"),
+"hit": SubResource("Animation_imwxf")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hare"]
+radius = 257.28
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28fur"]
+radius = 535.183
+
+[node name="Enemy_mob" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
+position = Vector2(644, 238)
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_6m127")
+nav_agent = NodePath("Navigation/NavigationAgent2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(72, 8)
+scale = Vector2(0.289409, 0.313492)
+sprite_frames = SubResource("SpriteFrames_xrbc0")
+animation = &"hit"
+
+[node name="SwordHit" type="Area2D" parent="AnimatedSprite2D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/SwordHit"]
+position = Vector2(3.45532, -7.97467)
+shape = SubResource("RectangleShape2D_3amsa")
+
+[node name="Timer" type="Timer" parent="AnimatedSprite2D/SwordHit"]
+
+[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
+visible = false
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("26_rxn2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox"]
+shape = SubResource("CapsuleShape2D_xp3dp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(75, 8)
+shape = SubResource("CircleShape2D_fh6v3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_33v2u")
+}
+
+[node name="Navigation" type="Node2D" parent="."]
+position = Vector2(8.00006, -16.9999)
+scale = Vector2(500, 5)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+simplify_path = true
+debug_enabled = true
+debug_path_custom_color = Color(0.644003, 0.75541, 0.0466353, 1)
+
+[node name="Timer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+autostart = true
+
+[node name="Aggro" type="Area2D" parent="."]
+visible = false
+position = Vector2(20, 6)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_6hare")
+debug_color = Color(0.751166, 0.166693, 0.756435, 0.42)
+
+[node name="DeAggro" type="Area2D" parent="."]
+visible = false
+position = Vector2(7, 7)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeAggro"]
+position = Vector2(1, -15)
+shape = SubResource("CircleShape2D_28fur")
+
+[connection signal="area_entered" from="AnimatedSprite2D/SwordHit" to="." method="_on_sword_hit_area_entered"]
+[connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]
