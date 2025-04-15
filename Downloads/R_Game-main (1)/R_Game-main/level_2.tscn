@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg40g1kurjhiw"]
+[gd_scene load_steps=10 format=3 uid="uid://cg40g1kurjhiw"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5kprece76h" path="res://map_1.tscn" id="1_0exu6"]
 [ext_resource type="PackedScene" uid="uid://dx2uhcd0hr7jo" path="res://player.tscn" id="2_s0c0c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3bsmdocqr0el" path="res://npc.tscn" id="4_5j0hx"]
 [ext_resource type="PackedScene" uid="uid://c1q44e5gjyrx8" path="res://pickable_sword.tscn" id="5_vd3yh"]
 [ext_resource type="Script" path="res://next_level2.gd" id="6_yujq3"]
+[ext_resource type="PackedScene" path="res://pause_menu.tscn" id="7_ashcf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fpbck"]
 vertices = PackedVector2Array(2608, 823.172, 3768.11, -378.008, 3791.88, 1663.37, 3534.88, 1673, 2422.83, 1681.03, 2592.79, 887.508, 2608, 674.828, -36.0234, -383.977, 2535.39, 660.078, 2358.12, 646.109, 2438, 1227.17, 2438, 867.203, 2454.57, 878.797, -40.9688, 1689.97, 2363, 708.391, 2363, 835.547, 2422.87, 1685.02, 2414.08, 843.563, 2418.1, 1227.27)
@@ -59,6 +60,7 @@ position = Vector2(2468, 786)
 position = Vector2(183, 109)
 
 [node name="Next_level2" type="Area2D" parent="."]
+position = Vector2(767, 305)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_yujq3")
@@ -73,6 +75,12 @@ offset_top = -379.0
 offset_right = 3726.0
 offset_bottom = -356.0
 text = "Next Level"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_ashcf")]
+offset_left = 770.0
+offset_top = 303.0
 
 [connection signal="area_entered" from="Next_level2" to="Next_level2" method="_on_area_entered"]
 [connection signal="area_exited" from="Next_level2" to="Next_level2" method="_on_area_exited"]
